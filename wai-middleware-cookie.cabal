@@ -1,0 +1,68 @@
+name:            wai-middleware-cookie
+version:         0.1
+cabal-version:   >= 1.8
+license:         OtherLicense
+license-file:    COPYING
+category:        Web
+copyright:       © 2014 Matthew Green
+author:          Matthew Green <babygguy@gmail.com>
+maintainer:      Matthew Green <babygguy@gmail.com>
+stability:       experimental
+tested-with:     GHC == 7.0.3
+synopsis:        Flexible cookie middleware for WAI
+homepage:        https://github.com/nerdgguy/wai-middleware-cookie
+bug-reports:     https://github.com/nerdgguy/wai-middleware-cookie/issues
+build-type:      Simple
+description:
+        Provides a generic, cookie-based middleware.
+        .
+        See example/Main.hs in git for example usage.
+
+extra-source-files:
+        README
+
+library
+        exposed-modules:
+                Network.Wai.Middleware.Cookie
+
+        build-depends:
+                base == 4.*,
+                containers,
+                bytestring,
+                transformers,
+                time,
+                cookie,
+                wai >= 1.1.0,
+                http-types,
+                blaze-builder,
+                wai-test
+
+        hs-source-dirs: src
+
+test-suite test-cookie
+        build-depends:
+                base == 4.*,
+                containers,
+                bytestring,
+                transformers,
+                time,
+                cookie,
+                wai >= 1.1.0,
+                http-types,
+                blaze-builder,
+                case-insensitive,
+                wai-middleware-cookie,
+                QuickCheck,
+                wai-test
+
+        type: exitcode-stdio-1.0
+
+        main-is: Cookie.hs
+
+        buildable: True
+
+        hs-source-dirs: test
+
+source-repository head
+        type:     git
+        location: git://github.com/NerdGGuy/wai-middleware-cookie.git

@@ -1,0 +1,3 @@
+Provides a generic, cookie-based middleware.
+
+See example/Main.hs in git for example usage.
